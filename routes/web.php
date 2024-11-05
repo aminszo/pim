@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ Route::get('/', function () {
     return redirect()->route('products.index');
 });
 
-Route::prefix('products')->name('products.')
+Route::middleware('auth')->prefix('products')->name('products.')
     ->controller(ProductController::class)->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
@@ -28,3 +29,12 @@ Route::prefix('products')->name('products.')
         Route::put('/{product}', 'update')->name('update');
         Route::delete('/{id}', 'destroy')->name('destroy');
     });
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__ . '/auth.php';
