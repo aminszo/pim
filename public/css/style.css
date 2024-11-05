@@ -1,0 +1,84 @@
+body {
+    padding-bottom: 90px;
+    font: 18px "VazirFD";
+}
+
+.input-a {
+    margin-top: 24px;
+}
+
+.input-a input,
+.input-a select {
+    border-radius: 11px;
+}
+
+.input-a label {
+    color: #A0A0A0;
+    font-weight: 200;
+}
+
+.button-a {
+    padding: 10px;
+    border-radius: 35px;
+    background-color: white;
+    color: #B417D4;
+    border: 1px solid #B417D4 !important;
+    transition: all 0.2s ease-in;
+}
+
+.button-a:hover {
+    background-color: rgba(180, 23, 212, 0.753);
+    color: white;
+}
+
+.navbar {
+    box-shadow: 0 -1px 6px 2px rgba(122, 122, 122, 0.22);
+}
+
+.product-item {
+    border : 1px solid #EAEAEA;
+    border-radius: 6px;
+    box-shadow: 1px 1px 6px 0px rgba(0, 0, 0, 0.09);
+    margin-bottom: 16px;
+}
+
+.product-image img {
+    border-radius: 5px 0 0 5px;
+    box-shadow: 2px 0px 4px -2px rgba(136, 136, 136, 0.529)
+}
+.product-title {
+    font-family: "Vazirmatn";
+    font-weight: 200;
+}
+
+.stock-badge {
+    border-radius: 14px;
+    padding: 1px 7px;
+    color: white;
+    font-family: "Vazirmatn";
+    font-weight: 200;
+}
+
+.stock-badge.in-stock {
+    background-color: #73E473;
+}
+.stock-badge.out-of-stock {
+    background-color: #F68383;
+}
+
+.no-link {
+    color: inherit;
+    font: inherit;
+    text-decoration: none;
+}
+
+.product-code {
+    opacity : 0;
+    background-color: white;
+    padding : 1px 5px;
+    transition : all .2s ease-out;
+}
+
+.product-code span {
+    font : bold 18px monospace;
+}
