@@ -55,6 +55,8 @@
 
         </div>
 
+        {{ $products->links()}}
+
         <script>
         // keep scroll position of the page
         document.addEventListener("DOMContentLoaded", function(event) {

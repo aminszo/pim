@@ -11,7 +11,7 @@ class ProductController extends Controller
     {
         // Retrieve all products from the database
         $products = Product::orderBy('stock_status', 'asc')
-                            ->orderBy('created_at', 'desc')->get();
+                            ->orderBy('created_at', 'desc')->paginate(40);
 
                             //orderBy ('code', 'desc')
 
