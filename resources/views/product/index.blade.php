@@ -53,7 +53,9 @@
                                     </a>
                                 </h4>
 
-                                <div class="product-description"></div>
+                                <div class="product-description">
+                                    {{ $product->is_second_hand ? 'کارکرده' : 'نو' }}
+                                </div>
 
                                 <div class="mt-auto d-flex flex-row justify-content-between">
                                     <div

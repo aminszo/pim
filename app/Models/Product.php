@@ -40,17 +40,17 @@ class Product extends Model
     {
         parent::boot();
 
-        // Clear cache on product creation
+        // Clear products stats cache on product creation
         static::created(function () {
             Cache::forget(self::STATS_CACHE_KEY);
         });
 
-        // Clear cache on product update
+        // Clear products stats cache on product update
         static::updated(function () {
             Cache::forget(self::STATS_CACHE_KEY);
         });
 
-        // Optionally, clear cache on product deletion
+        // clear products stats cache on product deletion
         static::deleted(function () {
             Cache::forget(self::STATS_CACHE_KEY);
         });
@@ -59,9 +59,9 @@ class Product extends Model
     public static function getStats()
     {
 
-        // set a cache for stats with 720 minuts lifetime (12 hours).
+        // set a cache for products stats with 43200 seconds lifetime (12 hours).
         // this will return the cached value if its available and if its not available, store it in cache.
-        return Cache::remember(self::STATS_CACHE_KEY, 720, function () {
+        return Cache::remember(self::STATS_CACHE_KEY, 43200, function () {
             $stats = [
                 'all' => self::count(),
                 'in-stock' => self::where('stock_status', 'in-stock')->count(),
