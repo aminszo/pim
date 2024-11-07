@@ -33,9 +33,27 @@ class Product extends Model
         'description',
     ];
 
-    // Define the relationship with tags (optional)
-    // public function tags()
-    // {
-    //     return $this->morphToMany(\Spatie\Tags\Tag::class, 'taggable');
-    // }
+    public static function getStats()
+    {
+        $stats = [
+            'all' => self::count(),
+            'in-stock' => self::where('stock_status', 'in-stock')->count(),
+            'out-of-stock' => self::where('stock_status', 'out-of-stock')->count(),
+            'cordless' => self::where('type', 'cordless')->count(),
+            'corded' => self::where('type', 'corded')->count(),
+            'hybrid' => self::where('type', 'hybrid')->count(),
+            'panasonic' =>  [
+                'all' => self::where('brand', 'پاناسونیک')->count(),
+                'in-stock' => self::where('brand', 'پاناسونیک')->where('stock_status', 'in-stock')->count(),
+                'out-of-stock' => self::where('brand', 'پاناسونیک')->where('stock_status', 'in-stock')->count(),
+            ],
+            'siemens' => [
+                'all' =>  self::where('brand', 'زیمنس')->count(),
+                'in-stock' => self::where('brand', 'زیمنس')->where('stock_status', 'in-stock')->count(),
+                'out-of-stock' => self::where('brand', 'زیمنس')->where('stock_status', 'in-stock')->count(),
+            ],
+        ];
+
+        return $stats;
+    }
 }

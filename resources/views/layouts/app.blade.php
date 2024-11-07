@@ -18,7 +18,7 @@
     <!-- Fonts CSS file -->
     <link rel="stylesheet" href="{{ asset('/css/fonts.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('/css/style.css?ver='.time()) }}">
+    <link rel="stylesheet" href="{{ asset('/css/style.css?ver=1.01') }}">
     {{-- <link rel="stylesheet" href="{{ asset('/css/style.css?ver=9') }}"> --}}
 
     <link rel="icon" type="image/png" href="{{ asset('/favicon.png') }}">

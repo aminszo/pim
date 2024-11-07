@@ -11,12 +11,12 @@ class ProductController extends Controller
     {
         // Retrieve all products from the database
         $products = Product::orderBy('stock_status', 'asc')
-                            ->orderBy('created_at', 'desc')->paginate(40);
+            ->orderBy('created_at', 'desc')->paginate(40);
 
-                            //orderBy ('code', 'desc')
+        $stats = Product::getStats();
 
         // Pass the products data to the view and load the index view
-        return view('product.index', ['products' => $products]);
+        return view('product.index', compact('products', 'stats'));
     }
 
     public function create()
