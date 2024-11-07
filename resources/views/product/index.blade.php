@@ -80,7 +80,7 @@
                             <!-- Main Image -->
                             @if ($product->image_path)
                                 <img src="{{ asset('/images/products/' . $product->image_path) }}" class="img-fluid"
-                                    alt="Product Image">
+                                    loading="lazy" alt="Product Image">
                             @else
                                 <!-- Placeholder Image -->
                                 <img src="https://placehold.co/400" class="img-fluid" alt="Placeholder Image">
